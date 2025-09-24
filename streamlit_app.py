@@ -26,8 +26,19 @@ img_idx = st.sidebar.slider('이미지 인덱스', 0, len(x_train)-1, 0)
 fig, ax = plt.subplots()
 ax.imshow(x_train[img_idx], cmap='gray')
 ax.axis('off')
+
 ax.set_title(f"Label: {class_names[y_train[img_idx]]}")
 st.sidebar.pyplot(fig)
+
+st.sidebar.markdown('---')
+st.sidebar.subheader('데이터셋 분할 정보')
+st.sidebar.markdown(
+    '''
+**Train 데이터**: 모델이 학습하는 데 사용하는 데이터 (전체의 약 81%)  
+**Validation 데이터**: 학습 중 모델의 성능을 검증하는 데 사용하는 데이터 (전체의 약 9%)  
+**Test 데이터**: 학습이 끝난 후 모델의 최종 성능을 평가하는 데 사용하는 데이터 (전체의 약 10%)
+    '''
+)
 
 # Main page: ANN 조건 설정 및 학습
 st.title('인공신경망 샘플 앱')
